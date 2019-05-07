@@ -1,0 +1,251 @@
+{
+    "title": "NFL v3 Projections",
+    "description": "NFL projected stats API.",
+    "docsUrl": "",
+    "url": "https://api.apis.guru/v2/specs/fantasydata.net/nfl-v3-projections/1.0/swagger.json",
+    "envVars": {},
+    "credentials": {
+        "fields": {
+            "server": {
+                "label": "Server",
+                "viewClass": "SelectView",
+                "model": [
+                    "http://api.fantasydata.net/v3/nfl/projections",
+                    "https://api.fantasydata.net/v3/nfl/projections",
+                    "--- Custom URL"
+                ],
+                "required": true
+            },
+            "otherServer": {
+                "label": "Custom Server URL",
+                "viewClass": "TextFieldView"
+            },
+            "apiKeyHeader": {
+                "label": "Ocp-Apim-Subscription-Key (apiKeyHeader)",
+                "viewClass": "TextFieldView"
+            },
+            "apiKeyQuery": {
+                "label": "subscription-key (apiKeyQuery)",
+                "viewClass": "TextFieldView"
+            }
+        }
+    },
+    "triggers": {
+        "startFlow": {
+            "main": "./lib/triggers/startFlow.js",
+            "type": "polling",
+            "title": "Start Flow",
+            "fields": {}
+        }
+    },
+    "actions": {
+        "DfsSlatesByDate": {
+            "main": "./lib/actions/DfsSlatesByDate.js",
+            "title": "DFS Slates by Date",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/DfsSlatesByDate.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "DfsSlatesByWeek": {
+            "main": "./lib/actions/DfsSlatesByWeek.js",
+            "title": "DFS Slates by Week",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/DfsSlatesByWeek.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ProjectedFantasyDefenseGameStatsWDfsSalaries": {
+            "main": "./lib/actions/ProjectedFantasyDefenseGameStatsWDfsSalaries.js",
+            "title": "Projected Fantasy Defense Game Stats (w/ DFS Salaries)",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ProjectedFantasyDefenseGameStatsWDfsSalaries.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ProjectedFantasyDefenseSeasonStatsWByeWeekAdp": {
+            "main": "./lib/actions/ProjectedFantasyDefenseSeasonStatsWByeWeekAdp.js",
+            "title": "Projected Fantasy Defense Season Stats (w/ Bye Week, ADP)",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ProjectedFantasyDefenseSeasonStatsWByeWeekAdp.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "IdpProjectedPlayerGameStatsByPlayerWInjuriesLineupsDfsSalaries": {
+            "main": "./lib/actions/IdpProjectedPlayerGameStatsByPlayerWInjuriesLineupsDfsSalaries.js",
+            "title": "IDP Projected Player Game Stats by Player (w/ Injuries, Lineups, DFS Salaries)",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/IdpProjectedPlayerGameStatsByPlayerWInjuriesLineupsDfsSalaries.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "IdpProjectedPlayerGameStatsByTeamWInjuriesLineupsDfsSalaries": {
+            "main": "./lib/actions/IdpProjectedPlayerGameStatsByTeamWInjuriesLineupsDfsSalaries.js",
+            "title": "IDP Projected Player Game Stats by Team (w/ Injuries, Lineups, DFS Salaries)",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/IdpProjectedPlayerGameStatsByTeamWInjuriesLineupsDfsSalaries.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "IdpProjectedPlayerGameStatsByWeekWInjuriesLineupsDfsSalaries": {
+            "main": "./lib/actions/IdpProjectedPlayerGameStatsByWeekWInjuriesLineupsDfsSalaries.js",
+            "title": "IDP Projected Player Game Stats by Week (w/ Injuries, Lineups, DFS Salaries)",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/IdpProjectedPlayerGameStatsByWeekWInjuriesLineupsDfsSalaries.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ProjectedPlayerGameStatsByPlayerWInjuriesLineupsDfsSalaries": {
+            "main": "./lib/actions/ProjectedPlayerGameStatsByPlayerWInjuriesLineupsDfsSalaries.js",
+            "title": "Projected Player Game Stats by Player (w/ Injuries, Lineups, DFS Salaries)",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ProjectedPlayerGameStatsByPlayerWInjuriesLineupsDfsSalaries.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ProjectedPlayerGameStatsByTeamWInjuriesLineupsDfsSalaries": {
+            "main": "./lib/actions/ProjectedPlayerGameStatsByTeamWInjuriesLineupsDfsSalaries.js",
+            "title": "Projected Player Game Stats by Team (w/ Injuries, Lineups, DFS Salaries)",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ProjectedPlayerGameStatsByTeamWInjuriesLineupsDfsSalaries.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ProjectedPlayerGameStatsByWeekWInjuriesLineupsDfsSalaries": {
+            "main": "./lib/actions/ProjectedPlayerGameStatsByWeekWInjuriesLineupsDfsSalaries.js",
+            "title": "Projected Player Game Stats by Week (w/ Injuries, Lineups, DFS Salaries)",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ProjectedPlayerGameStatsByWeekWInjuriesLineupsDfsSalaries.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ProjectedPlayerSeasonStatsWByeWeekAdp": {
+            "main": "./lib/actions/ProjectedPlayerSeasonStatsWByeWeekAdp.js",
+            "title": "Projected Player Season Stats (w/ Bye Week, ADP)",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ProjectedPlayerSeasonStatsWByeWeekAdp.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ProjectedPlayerSeasonStatsByPlayerWByeWeekAdp": {
+            "main": "./lib/actions/ProjectedPlayerSeasonStatsByPlayerWByeWeekAdp.js",
+            "title": "Projected Player Season Stats by Player (w/ Bye Week, ADP)",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ProjectedPlayerSeasonStatsByPlayerWByeWeekAdp.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ProjectedPlayerSeasonStatsByTeamWByeWeekAdp": {
+            "main": "./lib/actions/ProjectedPlayerSeasonStatsByTeamWByeWeekAdp.js",
+            "title": "Projected Player Season Stats by Team (w/ Bye Week, ADP)",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ProjectedPlayerSeasonStatsByTeamWByeWeekAdp.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        }
+    }
+}
